@@ -26,7 +26,10 @@ public class MainClass {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Put the view into a Frame
 		frame.add(view);
+		// center the frame
+		frame.setLocationRelativeTo(null);
 		// Make the frame visible
 		frame.setVisible(true);
+		
 	}
 }
