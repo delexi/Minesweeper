@@ -12,7 +12,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		//Create an instance of DefaultFieldModel
-		FieldModel model = new DefaultFieldModel(10,10,12);
+		FieldModel model = new DefaultFieldModel(10,10,5);
 		//Create an instance of ClassicFieldView
 		AbstractFieldView view = new ClassicFieldView(model, 50);
 		//Create an instance of FieldController

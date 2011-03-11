@@ -8,10 +8,17 @@ public class Tile {
 
 	public Tile(int x, int y, boolean flipped, boolean bomb, boolean marked, int number) {
 		super();
+		this.x = x;
+		this.y = y;
 		this.flipped = flipped;
 		this.bomb = bomb;
 		this.marked = marked;
 		this.number = number;
+	}
+	
+	@Override
+	public String toString() {
+		return "["+x+"|"+y+"],fl:"+flipped+",bo:"+bomb+",ma:"+marked+",#:"+number;
 	}
 
 	protected int getX() {

@@ -84,6 +84,20 @@ public class DefaultFieldModel extends AbstractFieldModel {
 			if(tiles.get(x,y).hasBomb()){
 				fireBombActivated(x, y);
 			}
+			flipTileRec(x, y);
+		}
+	}
+	
+	private void flipTileRec(int x, int y) {
+		if(tiles.get(x, y).getNumber() == 0) {
+			Tile[] neighbours = getNeighbours(x, y);
+			for(Tile n : neighbours) {
+				if(n!=null && !n.hasBomb() && !n.isFlipped()) {
+					n.setFlipped(true);
+					fireTileChanged(n.getX(), n.getY());
+					flipTileRec(n.getX(), n.getY());
+				}
+			}
 		}
 	}
 
@@ -158,7 +172,7 @@ public class DefaultFieldModel extends AbstractFieldModel {
 	}
 
 	private class BorderedField{
-		private final Tile[][] tiles;
+		private Tile[][] tiles;
 
 		public BorderedField(int width, int height){
 			tiles = new Tile[width+2][height+2];

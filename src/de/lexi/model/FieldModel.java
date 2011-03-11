@@ -1,3 +1,4 @@
+
 package de.lexi.model;
 
 import java.awt.Dimension;
