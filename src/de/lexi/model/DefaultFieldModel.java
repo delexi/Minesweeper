@@ -86,6 +86,24 @@ public class DefaultFieldModel extends AbstractFieldModel {
 			}
 			flipTileRec(x, y);
 		}
+		else {
+			int number = tiles.get(x,y).getNumber(); 
+			if(number != 0 ) {
+				Tile[] neighbours = getNeighbours(x, y);
+				int cntMarks = 0;
+				for(Tile n : neighbours) {
+					cntMarks += n.isMarked() ? 1 : 0; 
+				}
+				if(cntMarks == number) {
+					for(Tile n : neighbours) {
+						if(!n.isMarked()) {
+							n.setFlipped(true);
+							fireTileChanged(n.getX(), n.getY());
+						}
+					}
+				}
+			}
+		}
 	}
 	
 	private void flipTileRec(int x, int y) {
