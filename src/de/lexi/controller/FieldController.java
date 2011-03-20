@@ -11,6 +11,8 @@ public class FieldController extends MouseAdapter {
 	private final AbstractFieldView view;
 	private final FieldModel model;
 
+              // Test Edit ( this can be deleted )
+
 	public FieldController(AbstractFieldView view, FieldModel model){
 		super();
 		this.view = view;
